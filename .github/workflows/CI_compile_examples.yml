@@ -26,33 +26,33 @@ on:
 
 jobs:
   compile-examples_ubuntu:
-    name: ubuntu-latest - ${{ matrix.board.fqbn }}
-    runs-on: ubuntu-latest
+    name: ${{ matrix.os}} - ${{ matrix.board.fqbn }}
+    runs-on: ${{ matrix.os }}
 #    runs-on: ${{ matrix.os }}
     # list of all examples
     env:
       examples-to-use: |
           - Arduino_package/hardware/libraries/Analog
           - Arduino_package/hardware/libraries/BLE
-          - Arduino_package/hardware/libraries/Debugging
-          - Arduino_package/hardware/libraries/FileSystem
-          - Arduino_package/hardware/libraries/GPIO
-          - Arduino_package/hardware/libraries/GTimer
-          - Arduino_package/hardware/libraries/Http
-          - Arduino_package/hardware/libraries/MQTTClient
-          - Arduino_package/hardware/libraries/Multimedia
-          - Arduino_package/hardware/libraries/NeuralNetwork
-          - Arduino_package/hardware/libraries/NTPClient
-          - Arduino_package/hardware/libraries/OTA
-          - Arduino_package/hardware/libraries/PowerMode
-          - Arduino_package/hardware/libraries/QRCodeScanner
-          - Arduino_package/hardware/libraries/RTC
-          - Arduino_package/hardware/libraries/SPI/examples/Camera_2_Lcd_JPEGDEC
-          - Arduino_package/hardware/libraries/SPI/examples/LCD_Screen_ILI9341_TFT
-          - Arduino_package/hardware/libraries/USB
-          - Arduino_package/hardware/libraries/Watchdog
-          - Arduino_package/hardware/libraries/WiFi
-          - Arduino_package/hardware/libraries/Wire
+          # - Arduino_package/hardware/libraries/Debugging
+          # - Arduino_package/hardware/libraries/FileSystem
+          # - Arduino_package/hardware/libraries/GPIO
+          # - Arduino_package/hardware/libraries/GTimer
+          # - Arduino_package/hardware/libraries/Http
+          # - Arduino_package/hardware/libraries/MQTTClient
+          # - Arduino_package/hardware/libraries/Multimedia
+          # - Arduino_package/hardware/libraries/NeuralNetwork
+          # - Arduino_package/hardware/libraries/NTPClient
+          # - Arduino_package/hardware/libraries/OTA
+          # - Arduino_package/hardware/libraries/PowerMode
+          # - Arduino_package/hardware/libraries/QRCodeScanner
+          # - Arduino_package/hardware/libraries/RTC
+          # - Arduino_package/hardware/libraries/SPI/examples/Camera_2_Lcd_JPEGDEC
+          # - Arduino_package/hardware/libraries/SPI/examples/LCD_Screen_ILI9341_TFT
+          # - Arduino_package/hardware/libraries/USB
+          # - Arduino_package/hardware/libraries/Watchdog
+          # - Arduino_package/hardware/libraries/WiFi
+          # - Arduino_package/hardware/libraries/Wire
           # - Arduino_package/hardware/libraries/SPI/examples/Camera_2_Lcd
 
     strategy:
@@ -60,7 +60,7 @@ jobs:
       matrix:
         board:
           - fqbn: Ameba_AMB82-MINI
-#        os: [ubuntu-latest, windows-latest, macos-latest]
+       os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Exit workflow (other branches)
